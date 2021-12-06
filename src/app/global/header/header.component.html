@@ -1,0 +1,25 @@
+<mat-toolbar
+  color="primary"
+>
+  <span>WILSON.</span>
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Notifications icon"
+  >
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    aria-label="Language Settings"
+  >
+    <mat-icon>public</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    aria-label="My Account"
+    (click)="toggleLoginState()"
+  >
+    <mat-icon>{{ isAuthenticated ? 'account_circle' : 'login'}}</mat-icon>
+  </button>
+</mat-toolbar>

@@ -1,0 +1,13 @@
+<ng-container>
+  <div class="homepage">
+    <div class="homepage__hero"></div>
+    <div class="homepage__cards">
+      <ng-container *ngIf="cards">
+        <app-homepage-card
+          *ngFor="let card of cards"
+          [cardData]="card"
+        ></app-homepage-card>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

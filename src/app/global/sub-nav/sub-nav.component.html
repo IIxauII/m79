@@ -1,0 +1,6 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <ng-container *ngFor="let element of subNavElements">
+    <button mat-menu-item (click)="navigateTo(element)">{{ element.name }}</button>
+  </ng-container>
+</mat-menu>
