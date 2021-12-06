@@ -1,0 +1,48 @@
+<ng-container>
+  <h1 mat-dialog-title>{{ modalHeader }}</h1>
+</ng-container>
+
+<ng-container>
+  <form class="form" [formGroup]="serviceForm">
+    <mat-form-field class="form__field">
+      <mat-label>Service Name</mat-label>
+      <input matInput
+             type="text"
+             formControlName="nameFormControl"
+             placeholder="Ex. Quick Service">
+      <mat-error *ngIf="serviceForm.get(['nameFormControl'])?.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="form__time">
+      <mat-form-field class="form__field">
+        <mat-label>Start date</mat-label>
+        <input matInput
+               [matDatepicker]="picker"
+               formControlName="startDateFormControl">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="form__field">
+        <mat-label>Start Time</mat-label>
+        <input matInput
+               type="time"
+               formControlName="startTimeFormControl">
+      </mat-form-field>
+    </div>
+  </form>
+  <div mat-dialog-actions>
+    <ng-container *ngIf="mode == ServiceModalModeEnum.VIEW; then viewActions else createOrEditActions"></ng-container>
+  </div>
+</ng-container>
+
+<ng-template #createOrEditActions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button color='primary' (click)="save()">Save</button>
+</ng-template>
+
+<ng-template #viewActions>
+  <button mat-button color='primary' (click)="close()" cdkFocusInitial>Close</button>
+</ng-template>
+
+

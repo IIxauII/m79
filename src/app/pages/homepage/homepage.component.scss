@@ -1,0 +1,24 @@
+.homepage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__hero {
+    height: 50%;
+    width: 100%;
+    background-image: url("../../../assets/img/homepage/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__cards {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
